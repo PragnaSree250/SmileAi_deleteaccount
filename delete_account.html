@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account | SmileAI</title>
+    
+    <!-- Premium Modern Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #f9fbfe;           /* Clean Azure-White */
+            --card-bg: #ffffff;      /* Pure White */
+            --accent: #0ea5e9;       /* SmileAI Blue */
+            --text-main: #0f172a;    /* Deep Navy */
+            --text-dim: #64748b;     /* Slate Gray */
+            --border: #e2e8f0;       /* Light Border */
+            --danger: #ef4444;       /* Alert Red */
+            --input-bg: #f8fafc;     /* Soft Input Background */
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            text-align: center;
+        }
+
+        body {
+            background-color: var(--bg);
+            background-image: radial-gradient(#e2e8f0 0.8px, transparent 0.8px);
+            background-size: 30px 30px;
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        /* Widened container for better text alignment */
+        .app-container {
+            width: 100%;
+            max-width: 540px; 
+            animation: appEntry 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        @keyframes appEntry {
+            from { opacity: 0; transform: scale(0.98) translateY(20px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .brand-logo {
+            margin-bottom: 35px;
+        }
+
+        .brand-logo h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, var(--text-main), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* The Main App Card */
+        .app-card {
+            background: var(--card-bg);
+            padding: 50px 45px; /* Increased internal padding */
+            border-radius: 36px;
+            border: 1px solid var(--border);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.06);
+            position: relative;
+            margin-bottom: 40px; /* Space before the bottom text */
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: #fff1f2;
+            color: var(--danger);
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            padding: 7px 18px;
+            border-radius: 100px;
+            margin-bottom: 25px;
+            border: 1px solid #fee2e2;
+        }
+
+        .header-area h2 {
+            font-size: 1.7rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text-main);
+        }
+
+        .header-area p {
+            font-size: 1rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+            margin-bottom: 35px;
+        }
+
+        /* Centered Inputs */
+        .input-group {
+            margin-bottom: 18px;
+        }
+
+        input, textarea {
+            width: 100%;
+            background: var(--input-bg);
+            border: 1px solid var(--border);
+            padding: 18px;
+            border-radius: 18px;
+            color: var(--text-main);
+            font-size: 1rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus {
+            background: #ffffff;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+        }
+
+        textarea {
+            height: 110px;
+            resize: none;
+        }
+
+        .btn-primary {
+            width: 100%;
+            background: var(--text-main);
+            color: #ffffff;
+            border: none;
+            padding: 20px;
+            border-radius: 18px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(14, 165, 233, 0.2);
+        }
+
+        /* Centered Protocol Info */
+        .info-stack {
+            margin-top: 45px;
+            padding-top: 40px;
+            border-top: 1px solid var(--border);
+        }
+
+        .info-stack h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            margin-bottom: 25px;
+        }
+
+        .info-item strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .info-item p {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.6;
+        }
+
+        /* Aligned Footer Area */
+        .footer-area {
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        .support-text {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+            letter-spacing: 0.2px;
+        }
+
+        .support-text a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            border-bottom: 1px solid transparent;
+            transition: 0.3s;
+        }
+
+        .support-text a:hover {
+            border-bottom-color: var(--accent);
+        }
+
+        .update-tag {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-dim);
+            opacity: 0.6;
+        }
+
+        @media (max-width: 600px) {
+            .app-card { padding: 35px 25px; }
+            .app-container { max-width: 100%; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-container">
+    <div class="brand-logo">
+        <h1>SmileAI</h1>
+    </div>
+
+    <div class="app-card">
+        <span class="status-badge">Data Protection</span>
+        
+        <div class="header-area">
+            <h2>Account Deletion</h2>
+            <p>Please enter your details below to permanently remove your SmileAI account and clinical history.</p>
+        </div>
+
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Registered Email Address" required>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="name" placeholder="Full Name (Optional)">
+        </div>
+
+        <div class="input-group">
+            <textarea id="reason" placeholder="Reason for deletion (Optional)"></textarea>
+        </div>
+
+        <button class="btn-primary" onclick="initiateDeletion()">Delete My Account</button>
+
+        <div class="info-stack">
+            <h3>Protocol Information</h3>
+            
+            <div class="info-item">
+                <strong>Permanent Removal</strong>
+                <p>Dental diagnostic images, AI reports, and clinical history will be purged and cannot be recovered.</p>
+            </div>
+
+           
+
+            
+        </div>
+    </div>
+
+    <!-- Redesigned Footer Area -->
+    <div class="footer-area">
+        <p class="support-text">
+            Have questions regarding your data? <br> Reach our support team at 
+            <a href="mailto:pragnasreebalijapelly@gmail.com">pragnasreebalijapelly@gmail.com</a>
+        </p>
+        <p class="update-tag">Last Updated: March 26, 2026</p>
+    </div>
+</div>
+
+<script>
+    function initiateDeletion() {
+        const email = document.getElementById('email').value;
+        const name = document.getElementById('name').value;
+        const reason = document.getElementById('reason').value;
+
+        if (!email) {
+            alert("Email address is required.");
+            return;
+        }
+
+        const subject = "Request for Account Deletion - SmileAI";
+        const body = `Verification Details:%0D%0A----------------------%0D%0AEmail: ${email}%0D%0AName: ${name}%0D%0AReason: ${reason}`;
+        
+        window.location.href = `mailto:pragnasreebalijapelly@gmail.com?subject=${subject}&body=${body}`;
+    }
+</script>
+
+</body>
+</html>
